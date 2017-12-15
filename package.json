@@ -1,0 +1,12 @@
+{
+  "name": "circles",
+  "version": "1.0.0",
+  "description": "A fun project using HTML5 canvas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "scss --watch main.scss:dist/main.css"
+  },
+  "author": "John Coppola",
+  "license": "ISC"
+}

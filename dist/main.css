@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box; }
+
+html {
+  font-size: 10px; }
+
+body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  margin: 0;
+  height: 100vh;
+  font-size: 2rem;
+  font-family: 'Comfortaa', sans-serif;
+  font-weight: 300; }
+
+section {
+  grid-column: 1;
+  min-width: 200px;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: whitesmoke; }
+  section h1 {
+    font-weight: 300;
+    font-size: 5rem;
+    letter-spacing: 8px;
+    margin: 30px 0;
+    color: #9d8189; }
+  section .control {
+    margin-bottom: 20px; }
+  section label {
+    margin-bottom: 10px;
+    display: block; }
+
+main {
+  grid-column: 2; }
+
+/*# sourceMappingURL=main.css.map */
