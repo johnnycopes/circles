@@ -1,5 +1,6 @@
 class Circle {
-  constructor(x, y, speed, dx, dy, radius, color) {
+  constructor(size, x, y, speed, dx, dy, radius, color) {
+    this.size = size;
     this.x = x;
     this.y = y;
     this.speed = speed;
@@ -12,7 +13,7 @@ class Circle {
 
   draw() {
     c.beginPath();
-    c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+    c.arc(this.x, this.y, this.radius * this.size, 0, Math.PI * 2, false);
     c.fillStyle = this.color;
     c.fill();
   }
@@ -36,17 +37,17 @@ class Circle {
     this.y += this.dy * this.speed;
 
     // hover interactivity
-    if (
-      mouse.x - this.x < 75 &&
-      mouse.x - this.x > -75 &&
-      mouse.y - this.y < 75 &&
-      mouse.y - this.y > -75 &&
-      this.radius <= maxRadius
-    ) {
-      this.radius += 1;
-    } else if (this.radius >= this.minRadius) {
-      this.radius -= 1;
-    }
+    // if (
+    //   mouse.x - this.x < 75 &&
+    //   mouse.x - this.x > -75 &&
+    //   mouse.y - this.y < 75 &&
+    //   mouse.y - this.y > -75 &&
+    //   this.radius <= maxRadius
+    // ) {
+    //   this.radius += 1;
+    // } else if (this.radius >= this.minRadius) {
+    //   this.radius -= 1;
+    // }
 
     this.draw();
   }

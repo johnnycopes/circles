@@ -1,7 +1,8 @@
 class Board {
-  constructor(numCircles, circleSpeed) {
+  constructor(numCircles, circleSpeed, circleSize) {
     this.numCircles = numCircles;
     this.circleSpeed = circleSpeed;
+    this.circleSize = circleSize;
     this.circleArray = [];
   }
 
@@ -11,12 +12,20 @@ class Board {
     });
   }
 
+  adjustCircleSize() {
+    this.circleArray.forEach(circle => {
+      circle.size = this.circleSize;
+    });
+  }
+
   clearCircles() {
     this.circleArray = [];
   }
 
   createCircle() {
-    var radius = Math.round(Math.random() * 10) + 5;
+    var size = this.circleSize;
+    var radius = Math.round(Math.random() * 10);
+    console.log(radius);
     var x =
       Math.random() * (innerWidth - panel.scrollWidth - radius * 2) + radius;
     var y = Math.random() * (innerHeight - radius * 2) + radius;
@@ -25,7 +34,7 @@ class Board {
     var dy = Math.random() - 0.5;
     var color = colorsArray[Math.floor(Math.random() * 5)];
 
-    this.circleArray.push(new Circle(x, y, speed, dx, dy, radius, color));
+    this.circleArray.push(new Circle(size, x, y, speed, dx, dy, radius, color));
   }
 
   generateCircles() {
