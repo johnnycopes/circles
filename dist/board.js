@@ -25,10 +25,10 @@ class Board {
   createCircle() {
     var size = this.circleSize;
     var radius = Math.round(Math.random() * 10);
-    console.log(radius);
     var x =
-      Math.random() * (innerWidth - panel.scrollWidth - radius * 2) + radius;
-    var y = Math.random() * (innerHeight - radius * 2) + radius;
+      Math.random() * (innerWidth - panel.scrollWidth - radius * size * 2) +
+      radius * size;
+    var y = Math.random() * (innerHeight - radius * size * 2) + radius * size;
     var speed = this.circleSpeed;
     var dx = Math.random() - 0.5;
     var dy = Math.random() - 0.5;

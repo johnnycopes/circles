@@ -20,15 +20,16 @@ class Circle {
 
   update() {
     if (
-      this.x + this.radius >= window.innerWidth - panel.scrollWidth ||
-      this.x - this.radius <= 0
+      this.x + this.radius * this.size >=
+        window.innerWidth - panel.scrollWidth ||
+      this.x - this.radius * this.size <= 0
     ) {
       this.dx = -this.dx;
     }
 
     if (
-      this.y + this.radius >= window.innerHeight ||
-      this.y - this.radius <= 0
+      this.y + this.radius * this.size >= window.innerHeight ||
+      this.y - this.radius * this.size <= 0
     ) {
       this.dy = -this.dy;
     }
