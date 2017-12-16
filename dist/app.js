@@ -3,6 +3,7 @@ var canvas = document.querySelector('canvas');
 var quantity = document.querySelector('#quantity');
 var speed = document.querySelector('#speed');
 var size = document.querySelector('#size');
+var fill = document.querySelector('#fill');
 var refresh = document.querySelector('#refresh');
 var c = canvas.getContext('2d');
 
@@ -10,6 +11,7 @@ var mouse = { x: undefined, y: undefined }; // null = 0, so better to use undefi
 var numCircles = 100;
 var circleSpeed = 3;
 var circleSize = 2;
+var circleFill = true;
 var circlesArray = [];
 var colorsArray = ['#D8E2DC', '#FFE5D9', '#FFCAD4', '#F4ACB7', '#9D8189'];
 
@@ -71,10 +73,21 @@ function setEventHandlers() {
     adjustCircleSize();
   });
 
+  fill.addEventListener('click', function() {
+    circleFill = !circleFill;
+    adjustCircleFill();
+  });
+
   refresh.addEventListener('click', init);
 }
 
 // ****************************************
+
+function adjustCircleFill() {
+  circleArray.forEach(circle => {
+    circle.fill = this.circleFill;
+  });
+}
 
 function adjustCircleSpeed() {
   circleArray.forEach(circle => {
@@ -105,7 +118,18 @@ function createCircle() {
   var color = colorsArray[Math.floor(Math.random() * 5)];
 
   this.circleArray.push(
-    new Circle(circleSize, x, y, circleSpeed, dx, dy, radius, color, mouse)
+    new Circle(
+      circleSize,
+      x,
+      y,
+      circleSpeed,
+      dx,
+      dy,
+      radius,
+      circleFill,
+      color,
+      mouse
+    )
   );
 }
 

@@ -11,29 +11,43 @@ body {
   margin: 0;
   height: 100vh;
   font-size: 2rem;
-  font-family: 'Comfortaa', sans-serif;
-  font-weight: 300; }
+  font-family: 'Spectral SC', serif;
+  font-weight: 300;
+  color: #9d8189; }
 
 section {
   grid-column: 1;
-  min-width: 200px;
+  min-width: 250px;
   max-width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: whitesmoke; }
+  background: rgba(255, 202, 212, 0.15); }
   section h1 {
-    font-weight: 300;
-    font-size: 5rem;
+    font-weight: 400;
+    font-family: 'Poiret One', sans-serif;
+    font-size: 6rem;
     letter-spacing: 8px;
     margin: 30px 0;
     color: #9d8189; }
   section .control {
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    text-align: center; }
   section label {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     display: block; }
+  section .switch {
+    margin-top: 30px; }
+    section .switch__wrapper {
+      display: flex;
+      width: 220px; }
+    section .switch__element {
+      flex: 1 1 0; }
+    section .switch .toggle {
+      margin: 0 10px;
+      border: 1px solid #9d8189;
+      border-radius: 50px; }
 
 main {
   grid-column: 2; }
