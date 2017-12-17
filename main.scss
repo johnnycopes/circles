@@ -116,8 +116,7 @@ section {
 
     #fill:checked + label:after {
       left: 30px;
-      box-shadow: inset 0 0 0 1px rgba($brown, 0.2s),
-        0 2px 4px rgba($brown, 0.2);
+      box-shadow: inset 0 0 0 1px rgba($brown, 0.2), 0 2px 4px rgba($brown, 0.2);
     }
   }
 }

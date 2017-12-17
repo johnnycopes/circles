@@ -1,3 +1,5 @@
+import { Circle } from './circle';
+
 var panel = document.querySelector('section');
 var canvas = document.querySelector('canvas');
 var quantity = document.querySelector('#quantity');
@@ -7,13 +9,11 @@ var fill = document.querySelector('#fill');
 var refresh = document.querySelector('#refresh');
 var c = canvas.getContext('2d');
 
-var gravity = 0;
-var mouse = { x: undefined, y: undefined }; // null = 0, so better to use undefined
 var numCircles = 100;
 var circleSpeed = 3;
 var circleSize = 2;
 var circleFill = true;
-var circlesArray = [];
+var circleArray = [];
 var colorsArray = ['#D8E2DC', '#FFE5D9', '#FFCAD4', '#F4ACB7', '#9D8189'];
 
 quantity.value = numCircles;
@@ -46,26 +46,6 @@ function animate() {
 function setEventHandlers() {
   window.addEventListener('resize', init);
 
-  canvas.addEventListener('mousedown', function() {
-    gravity = 1;
-    console.log('holding...', gravity);
-  });
-
-  canvas.addEventListener('mouseup', function() {
-    gravity = 0;
-    console.log('done', gravity);
-  });
-
-  canvas.addEventListener('mousemove', function(event) {
-    mouse.x = event.x - panel.scrollWidth;
-    mouse.y = event.y;
-  });
-
-  canvas.addEventListener('mouseout', function() {
-    mouse.x = undefined;
-    mouse.y = undefined;
-  });
-
   quantity.addEventListener('input', function() {
     numCircles = this.value;
     generateCircles();
@@ -95,19 +75,19 @@ function setEventHandlers() {
 
 function adjustCircleFill() {
   circleArray.forEach(circle => {
-    circle.fill = this.circleFill;
+    circle.fill = circleFill;
   });
 }
 
 function adjustCircleSpeed() {
   circleArray.forEach(circle => {
-    circle.speed = this.circleSpeed;
+    circle.speed = circleSpeed;
   });
 }
 
 function adjustCircleSize() {
   circleArray.forEach(circle => {
-    circle.size = this.circleSize;
+    circle.size = circleSize;
   });
 }
 
@@ -127,8 +107,20 @@ function createCircle() {
   var dy = Math.random() - 0.5;
   var color = colorsArray[Math.floor(Math.random() * 5)];
 
-  this.circleArray.push(
-    new Circle(circleSize, x, y, circleSpeed, dx, dy, radius, circleFill, color)
+  circleArray.push(
+    new Circle(
+      canvas,
+      c,
+      circleSize,
+      x,
+      y,
+      circleSpeed,
+      dx,
+      dy,
+      radius,
+      circleFill,
+      color
+    )
   );
 }
 
@@ -147,5 +139,5 @@ function generateCircles() {
 }
 
 function removeCircle() {
-  this.circleArray.pop();
+  circleArray.pop();
 }

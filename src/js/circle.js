@@ -1,5 +1,7 @@
-class Circle {
-  constructor(size, x, y, speed, dx, dy, radius, fill, color) {
+export class Circle {
+  constructor(canvas, c, size, x, y, speed, dx, dy, radius, fill, color) {
+    this.canvas = canvas;
+    this.c = c;
     this.size = size;
     this.x = x;
     this.y = y;
@@ -14,27 +16,27 @@ class Circle {
   }
 
   draw() {
-    c.beginPath();
-    c.arc(this.x, this.y, this.radius * this.size, 0, Math.PI * 2, false);
+    this.c.beginPath();
+    this.c.arc(this.x, this.y, this.radius * this.size, 0, Math.PI * 2, false);
     if (this.fill) {
-      c.fillStyle = this.color;
-      c.fill();
+      this.c.fillStyle = this.color;
+      this.c.fill();
     } else {
-      c.strokeStyle = this.color;
-      c.stroke();
+      this.c.strokeStyle = this.color;
+      this.c.stroke();
     }
   }
 
   update() {
     if (
-      this.x + this.radius * this.size >= canvas.width ||
+      this.x + this.radius * this.size >= this.canvas.width ||
       this.x - this.radius * this.size <= 0
     ) {
       this.dx = -this.dx;
     }
 
     if (
-      this.y + this.radius * this.size >= canvas.height ||
+      this.y + this.radius * this.size >= this.canvas.height ||
       this.y - this.radius * this.size <= 0
     ) {
       this.dy = -this.dy;
@@ -42,11 +44,6 @@ class Circle {
 
     this.x += this.dx * this.speed;
     this.y += this.dy * this.speed;
-
-    // on mousedown, if circles are within range...
-    if (gravity) {
-      this.color;
-    }
 
     this.draw();
   }

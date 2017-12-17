@@ -5,8 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --config webpack.config.js",
     "watch": "scss --watch main.scss:dist/main.css"
   },
   "author": "John Coppola",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^3.10.0"
+  }
 }
