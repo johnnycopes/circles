@@ -44,10 +44,47 @@ section {
       width: 220px; }
     section .switch__element {
       flex: 1 1 0; }
-    section .switch .toggle {
-      margin: 0 10px;
-      border: 1px solid #9d8189;
-      border-radius: 50px; }
+    section .switch #fill {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      left: -9999px; }
+    section .switch #fill + label {
+      cursor: pointer;
+      position: relative;
+      box-shadow: inset 0 0 0px 1px rgba(157, 129, 137, 0.2);
+      height: 30px;
+      width: 60px;
+      border-radius: 15px; }
+    section .switch #fill + label:before {
+      content: '';
+      position: absolute;
+      display: block;
+      height: 30px;
+      width: 30px;
+      top: 0;
+      left: 0;
+      border-radius: 15px;
+      background: rgba(157, 129, 137, 0.2);
+      transition: 150ms ease-in; }
+    section .switch #fill + label:after {
+      content: '';
+      position: absolute;
+      display: block;
+      height: 30px;
+      width: 30px;
+      top: 0;
+      left: 0;
+      border-radius: 15px;
+      background: #fff;
+      box-shadow: inset 0 0 0 1px rgba(157, 129, 137, 0.2), 0 2px 4px rgba(157, 129, 137, 0.2);
+      transition: 150ms ease-in; }
+    section .switch #fill:checked + label:before {
+      width: 60px;
+      background: rgba(216, 226, 220, 0.5); }
+    section .switch #fill:checked + label:after {
+      left: 30px;
+      box-shadow: inset 0 0 0 1px rgba(157, 129, 137, 0.2), 0 2px 4px rgba(157, 129, 137, 0.2); }
 
 main {
   grid-column: 2; }

@@ -7,6 +7,7 @@ var fill = document.querySelector('#fill');
 var refresh = document.querySelector('#refresh');
 var c = canvas.getContext('2d');
 
+var gravity = 0;
 var mouse = { x: undefined, y: undefined }; // null = 0, so better to use undefined
 var numCircles = 100;
 var circleSpeed = 3;
@@ -45,12 +46,19 @@ function animate() {
 function setEventHandlers() {
   window.addEventListener('resize', init);
 
+  canvas.addEventListener('mousedown', function() {
+    gravity = 1;
+    console.log('holding...', gravity);
+  });
+
+  canvas.addEventListener('mouseup', function() {
+    gravity = 0;
+    console.log('done', gravity);
+  });
+
   canvas.addEventListener('mousemove', function(event) {
     mouse.x = event.x - panel.scrollWidth;
     mouse.y = event.y;
-    circleArray.forEach(circle => {
-      circle.mouse = mouse;
-    });
   });
 
   canvas.addEventListener('mouseout', function() {
@@ -74,8 +82,10 @@ function setEventHandlers() {
   });
 
   fill.addEventListener('click', function() {
-    circleFill = !circleFill;
-    adjustCircleFill();
+    setTimeout(function() {
+      circleFill = !circleFill;
+      adjustCircleFill();
+    }, 150);
   });
 
   refresh.addEventListener('click', init);
@@ -118,18 +128,7 @@ function createCircle() {
   var color = colorsArray[Math.floor(Math.random() * 5)];
 
   this.circleArray.push(
-    new Circle(
-      circleSize,
-      x,
-      y,
-      circleSpeed,
-      dx,
-      dy,
-      radius,
-      circleFill,
-      color,
-      mouse
-    )
+    new Circle(circleSize, x, y, circleSpeed, dx, dy, radius, circleFill, color)
   );
 }
 

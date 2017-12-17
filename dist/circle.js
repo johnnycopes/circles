@@ -1,5 +1,5 @@
 class Circle {
-  constructor(size, x, y, speed, dx, dy, radius, fill, color, mouse) {
+  constructor(size, x, y, speed, dx, dy, radius, fill, color) {
     this.size = size;
     this.x = x;
     this.y = y;
@@ -9,7 +9,8 @@ class Circle {
     this.radius = radius;
     this.fill = fill;
     this.color = color;
-    this.mouse = mouse;
+
+    this.originalDy = dy;
   }
 
   draw() {
@@ -42,19 +43,10 @@ class Circle {
     this.x += this.dx * this.speed;
     this.y += this.dy * this.speed;
 
-    // hover interactivity
-    // make this gravity!
-    // if (
-    //   mouse.x - this.x < 75 &&
-    //   mouse.x - this.x > -75 &&
-    //   mouse.y - this.y < 75 &&
-    //   mouse.y - this.y > -75 &&
-    //   this.radius <= 80
-    // ) {
-    //   this.radius += 1;
-    // } else if (this.radius >= this.minRadius) {
-    //   this.radius -= 1;
-    // }
+    // on mousedown, if circles are within range...
+    if (gravity) {
+      this.color;
+    }
 
     this.draw();
   }

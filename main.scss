@@ -1,3 +1,4 @@
+$white: #fff;
 $mint: #d8e2dc;
 $beige: #ffe5d9;
 $light-pink: #ffcad4;
@@ -65,10 +66,58 @@ section {
       flex: 1 1 0;
     }
 
-    .toggle {
-      margin: 0 10px;
-      border: 1px solid $brown;
-      border-radius: 50px;
+    #fill {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      left: -9999px;
+    }
+
+    #fill + label {
+      cursor: pointer;
+      position: relative;
+      box-shadow: inset 0 0 0px 1px rgba($brown, 0.2);
+      height: 30px;
+      width: 60px;
+      border-radius: 15px;
+    }
+
+    #fill + label:before {
+      content: '';
+      position: absolute;
+      display: block;
+      height: 30px;
+      width: 30px;
+      top: 0;
+      left: 0;
+      border-radius: 15px;
+      background: rgba($brown, 0.2);
+      transition: 150ms ease-in;
+    }
+
+    #fill + label:after {
+      content: '';
+      position: absolute;
+      display: block;
+      height: 30px;
+      width: 30px;
+      top: 0;
+      left: 0;
+      border-radius: 15px;
+      background: $white;
+      box-shadow: inset 0 0 0 1px rgba($brown, 0.2), 0 2px 4px rgba($brown, 0.2);
+      transition: 150ms ease-in;
+    }
+
+    #fill:checked + label:before {
+      width: 60px;
+      background: rgba($mint, 0.5);
+    }
+
+    #fill:checked + label:after {
+      left: 30px;
+      box-shadow: inset 0 0 0 1px rgba($brown, 0.2s),
+        0 2px 4px rgba($brown, 0.2);
     }
   }
 }
