@@ -5,6 +5,13 @@ $light-pink: #ffcad4;
 $pink: #f4acb7;
 $brown: #9d8189;
 
+$input-box-shadow: inset 0 0 0px 1px rgba($brown, 0.2),
+  0 1px 2px rgba($brown, 0.2);
+$range-bg-color: rgba($mint, 0.5);
+$range-handle-size: 20px;
+$range-handle-color: $brown;
+$range-handle-color-hover: darken($brown, 10%);
+
 * {
   box-sizing: border-box;
 }
@@ -45,17 +52,48 @@ section {
   }
 
   .control {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     text-align: center;
   }
 
   label {
-    margin-bottom: 5px;
     display: block;
   }
 
+  .range-slider {
+    input[type='range'] {
+      margin: 10px 0;
+      width: 100%;
+      height: 10px;
+      background: $range-bg-color;
+      box-shadow: $input-box-shadow;
+      border-radius: 50px;
+      -webkit-appearance: none;
+    }
+
+    input[type='range']:focus {
+      outline: none;
+    }
+
+    input[type='range']::-webkit-slider-runnable-track {
+      height: 10px;
+      cursor: pointer;
+    }
+
+    input[type='range']::-webkit-slider-thumb {
+      margin-top: -10px;
+      width: 30px;
+      height: 30px;
+      background: #ffffff;
+      box-shadow: $input-box-shadow;
+      border-radius: 50px;
+      cursor: pointer;
+      -webkit-appearance: none;
+    }
+  }
+
   .switch {
-    margin-top: 30px;
+    margin-top: 35px;
 
     &__wrapper {
       display: flex;
@@ -76,7 +114,7 @@ section {
     #fill + label {
       cursor: pointer;
       position: relative;
-      box-shadow: inset 0 0 0px 1px rgba($brown, 0.2);
+      box-shadow: $input-box-shadow;
       height: 30px;
       width: 60px;
       border-radius: 15px;
