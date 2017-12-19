@@ -7,10 +7,16 @@ const OptimzeCSSAssets = require('optimize-css-assets-webpack-plugin');
 let config = {
   entry: './src/index.js',
   watch: true,
-  devtool: 'eval-source-map', // enable devtool for better debugging experience
+  devtool: 'source-map', // enable devtool for better debugging experience
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, './dist')
+  },
+  devServer: {
+    contentBase: path.resolve(__dirname, './dist'),
+    historyApiFallback: true,
+    inline: true,
+    open: true
   },
   module: {
     rules: [
@@ -20,11 +26,32 @@ let config = {
         loader: 'babel-loader' // use this (babel-core) loader
       },
       {
-        test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          use: ['css-loader', 'sass-loader'], // use these loaders
-          fallback: 'style-loader' // fallback for any CSS not extracted
-        })
+        test: /\.scss$/, // files ending with .scss
+        use: ['css-hot-loader'].concat(
+          ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: [
+              {
+                loader: 'css-loader',
+                options: {
+                  sourceMap: true
+                }
+              },
+              {
+                loader: 'postcss-loader',
+                options: {
+                  sourceMap: true
+                }
+              },
+              {
+                loader: 'sass-loader',
+                options: {
+                  sourceMap: true
+                }
+              }
+            ]
+          })
+        )
       }
     ] // end rules
   },
