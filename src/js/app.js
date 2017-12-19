@@ -29,6 +29,8 @@ animate();
 function init() {
   canvas.width = window.innerWidth - panel.scrollWidth;
   canvas.height = window.innerHeight;
+  console.log(panel.scrollWidth);
+  console.log(panel);
 
   clearCircles();
   generateCircles();

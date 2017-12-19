@@ -107,7 +107,5 @@ section {
       left: 30px;
       box-shadow: inset 0 0 0 1px rgba(157, 129, 137, 0.2), 0 2px 4px rgba(157, 129, 137, 0.2); }
 
-main {
+canvas {
   grid-column: 2; }
-
-/*# sourceMappingURL=main.css.map */
