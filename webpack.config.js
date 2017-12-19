@@ -1,10 +1,13 @@
 const webpack = require('webpack');
 const path = require('path');
-const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const OptimzeCSSAssets = require('optimize-css-assets-webpack-plugin');
 
 let config = {
   entry: './src/index.js',
   watch: true,
+  devtool: 'eval-source-map', // enable devtool for better debugging experience
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
@@ -18,14 +21,21 @@ let config = {
       },
       {
         test: /\.scss$/,
-        use: ExtractTextWebpackPlugin.extract({
+        use: ExtractTextPlugin.extract({
           use: ['css-loader', 'sass-loader'], // use these loaders
           fallback: 'style-loader' // fallback for any CSS not extracted
         })
       }
     ] // end rules
   },
-  plugins: [new ExtractTextWebpackPlugin('styles.css')]
+  plugins: [new ExtractTextPlugin('styles.css')]
 };
 
 module.exports = config;
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports.plugins.push(
+    new webpack.optimize.UglifyJsPlugin(), // call the uglify plugin
+    new OptimzeCSSAssets()
+  );
+}
