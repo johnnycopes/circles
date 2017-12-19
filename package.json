@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --progress",
-    "start": "webpack-dev-server --hot --config webpack.config.js --watch",
+    "start": "webpack-dev-server   --hot --config webpack.config.js --watch",
     "prod": "NODE_ENV=production webpack"
   },
   "author": "John Coppola",
