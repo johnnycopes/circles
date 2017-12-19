@@ -138,7 +138,7 @@ body {
   margin: 0;
   height: 100vh;
   font-size: 2rem;
-  font-family: 'Spectral SC', serif;
+  font-family: "Spectral SC", serif;
   font-weight: 300;
   color: #9d8189; }
 
@@ -153,16 +153,18 @@ section {
   background: rgba(255, 202, 212, 0.15); }
   section .title {
     font-weight: 400;
-    font-family: 'Poiret One', sans-serif;
+    font-family: "Poiret One", sans-serif;
     font-size: 6rem;
     letter-spacing: 8px;
-    margin: 30px 0;
     color: #9d8189; }
   section .control {
     margin-bottom: 25px;
     text-align: center; }
+    section .control:last-child {
+      margin-bottom: 0; }
   section label {
-    display: block; }
+    display: block;
+    margin-bottom: 5px; }
   section .range-slider input[type='range'] {
     margin: 10px 0;
     width: 100%;
@@ -185,8 +187,10 @@ section {
     border-radius: 50px;
     cursor: pointer;
     -webkit-appearance: none; }
+    section .range-slider input[type='range']::-webkit-slider-thumb:hover {
+      background: #fafafa; }
   section .switch {
-    margin-top: 35px; }
+    margin: 35px 0; }
     section .switch__wrapper {
       display: flex;
       align-items: center;
@@ -215,7 +219,7 @@ section {
       left: 0;
       border-radius: 15px;
       background: rgba(157, 129, 137, 0.2);
-      transition: 150ms ease-in; }
+      transition: 100ms all ease-in-out; }
     section .switch #fill + label:after {
       content: '';
       position: absolute;
@@ -227,16 +231,37 @@ section {
       border-radius: 15px;
       background: #fff;
       box-shadow: inset 0 0 0 1px rgba(157, 129, 137, 0.2), 0 2px 4px rgba(157, 129, 137, 0.2);
-      transition: 150ms ease-in; }
+      transition: 100ms all ease-in-out; }
     section .switch #fill:checked + label:before {
       width: 60px;
       background: rgba(216, 226, 220, 0.5); }
     section .switch #fill:checked + label:after {
       left: 30px;
       box-shadow: inset 0 0 0 1px rgba(157, 129, 137, 0.2), 0 2px 4px rgba(157, 129, 137, 0.2); }
+  section .refresh-btn {
+    border: 0;
+    outline: none;
+    padding: 0.5rem 3rem;
+    background: #fff;
+    font-family: "Spectral SC", serif;
+    font-size: 2rem;
+    color: #9d8189;
+    box-shadow: inset 0 0 0px 1px rgba(157, 129, 137, 0.2), 0 1px 2px rgba(157, 129, 137, 0.2);
+    cursor: pointer;
+    transition: 100ms all ease-in-out; }
+    section .refresh-btn:hover {
+      background: #fafafa; }
+    section .refresh-btn:active {
+      transform: translateY(1px); }
   section .signature {
-    color: rgba(157, 129, 137, 0.2);
-    font-family: 'Poiret One'; }
+    font-family: "Poiret One", sans-serif;
+    text-decoration: none;
+    transition: 100ms all ease-in-out;
+    outline: none; }
+    section .signature:link, section .signature:visited {
+      color: rgba(157, 129, 137, 0.2); }
+    section .signature:focus, section .signature:hover, section .signature:active {
+      color: rgba(157, 129, 137, 0.4); }
 
 canvas {
   grid-column: 2; }
