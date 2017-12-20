@@ -1,7 +1,7 @@
 {
   "name": "circles",
   "version": "1.0.0",
-  "description": "A fun project using HTML5 canvas",
+  "description": "A fun project built with HTML5 canvas",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,6 +10,11 @@
     "prod": "NODE_ENV=production webpack"
   },
   "author": "John Coppola",
+  "homepage": "https://canvas-circles.surge.sh/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/johnnycopes/circles"
+  },
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^7.2.3",
