@@ -6,7 +6,6 @@ const OptimzeCSSAssets = require('optimize-css-assets-webpack-plugin');
 
 let config = {
   entry: './src/index.js',
-  watch: true,
   devtool: 'source-map', // enable devtool for better debugging experience
   output: {
     filename: 'bundle.js',
