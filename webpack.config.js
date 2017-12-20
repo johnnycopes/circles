@@ -16,14 +16,14 @@ let config = {
     contentBase: path.resolve(__dirname, './dist'),
     historyApiFallback: true,
     inline: true,
-    open: true
+    open: false
   },
   module: {
     rules: [
       {
         test: /\.js$/, // files ending with .js
         exclude: /node_modules/, // exclude the node_modules directory
-        loader: 'babel-loader' // use this (babel-core) loader
+        use: 'babel-loader' // use this (babel-core) loader
       },
       {
         test: /\.scss$/, // files ending with .scss
