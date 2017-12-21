@@ -1,5 +1,7 @@
 # circles
 
+Live site: https://canvas-circles.surge.sh
+
 A fun project built with HTML Canvas. Control the number, speed, and size of animated circles bouncing around the screen. Shout-out to the tutorial series [Chris Courses](https://www.youtube.com/watch?v=EO6OkltgudE&list=PLpPnRKq7eNW3We9VdCfx9fprhqXHwTPXL) for the excellent introduction to how the element works!
 
 ## Local installation
